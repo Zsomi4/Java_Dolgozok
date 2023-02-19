@@ -1,0 +1,24 @@
+{
+  "name": "dolgozok",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx hai-server --watch database.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zsomi4/Java_Dolgozok.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zsomi4/Java_Dolgozok/issues"
+  },
+  "homepage": "https://github.com/Zsomi4/Java_Dolgozok#readme",
+  "dependencies": {
+    "hai-server": "^0.0.4"
+  }
+}
