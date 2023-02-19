@@ -19,10 +19,10 @@ public class Restapi {
     public Restapi() {
         this.host = "http://[::1]:3000/";
     }
-    public String getVehiclesAsString() {
+    public String getEmployee() {
         String response = null;
         try {
-            response = tryGetVehiclesAsString();
+            response = tryGetEmployee();
         }catch (MalformedURLException e) {
             System.err.println("Hiba! Érvénytelen URL!");
         }catch(IOException e) {
@@ -30,7 +30,7 @@ public class Restapi {
         }
         return response;
     }
-    public String tryGetVehiclesAsString() 
+    public String tryGetEmployee() 
             throws MalformedURLException, IOException {
         String endpoint = "employee";
         String urlStr = this.host + endpoint;
@@ -39,7 +39,6 @@ public class Restapi {
         http.setRequestMethod("GET");
         http.connect();
         int responseCode = http.getResponseCode();
-        // System.out.println(responseCode);
         String text = null;
         if(responseCode == 200) {
             InputStream inputStream = http.getInputStream();
@@ -47,7 +46,6 @@ public class Restapi {
         }else {
             text = "--hiba--";
         }
-        // System.out.println(text);
         return text;
     }
     private String convertInputStreamToString(InputStream inputStream) {
@@ -60,15 +58,14 @@ public class Restapi {
         scanner.close();
         return stringBuilder.toString();
     }
-    public ArrayList<Employee> getVehicles() {
+    public ArrayList<Employee> getEmployees() {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        String text = getVehiclesAsString();
-        // System.out.println("Itt: " + text);
+        String text = getEmployee();
         Employee[] employeeArray = gson.fromJson(text, Employee[].class);
-        ArrayList<Employee> vehicleList =
+        ArrayList<Employee> employeeList =
             new ArrayList<>(Arrays.asList(employeeArray));
-        return vehicleList;
+        return employeeList;
     }
 
 }
