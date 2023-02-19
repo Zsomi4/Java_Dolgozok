@@ -14,7 +14,7 @@ public class MainConsole {
     public void start() {
         ArrayList<Employee> employees = this.restapi.getEmployees();
         for(Employee employee: employees) {
-            System.out.printf("%10s %12s %6.2f\n",
+            System.out.printf("%10.10s %12s %6d %,6.2f\n",
              employee.city,
              employee.address,
              employee.size,

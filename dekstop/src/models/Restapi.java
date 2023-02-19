@@ -17,7 +17,7 @@ import com.google.gson.GsonBuilder;
 public class Restapi {
     String host;
     public Restapi() {
-        this.host = "http://[::1]:3000/";
+        this.host = "http://localhost:3000/";
     }
     public String getEmployee() {
         String response = null;
